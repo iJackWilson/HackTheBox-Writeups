@@ -5,8 +5,8 @@ The first step is to run an nmap scan to get an idea of what services are runnin
 *nmap -sV -sC -Pn -oA Poison 10.10.10.84*
 
 ```
-Falcon:~ jack$ nmap -sV -sC -Pn -oA Poison 10.10.10.84
-Starting Nmap 7.70 ( https://nmap.org ) at 2018-09-09 20:20 BST
+nmap -sV -sC -Pn -oA Poison 10.10.10.84
+Starting Nmap 7.70 ( https://nmap.org )
 Nmap scan report for 10.10.10.84
 Host is up (0.035s latency).
 Not shown: 993 closed ports
@@ -20,7 +20,7 @@ PORT     STATE SERVICE VERSION
 6003/tcp open  X11     (access denied)
 Service Info: OS: FreeBSD; CPE: cpe:/o:freebsd:freebsd
 ```
-There's a good amount of services, but let's start by visiting the web interface which shows an input box used to view files. This is unrestricted so entering `/etc/passwd` will allow us to view this file and enumerate users.
+There's a good amount of services running, but let's start by visiting the web interface which shows an input box used to view files. This is unrestricted so entering `/etc/passwd` will allow us to view this file and enumerate users.
 
 ![Homepage](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Images/Poison/Homepage.png?raw=true)
 
@@ -45,3 +45,19 @@ We know from viewing the */etc/passwd* file that there is a user called *Charix*
 In my experience, there is some latency with this machine, so you may have to wait 10-15 seconds for the password prompt to appear. Once it does, you have user access on the machine and the ability to grab the user.txt flag.
 
 ![Homepage](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Images/Poison/UserShell.png?raw=true)
+
+There's also a file called secret.zip sitting in the home directory. We'll need this later so let's copy it using secure copy (SCP). On the host machine (not the HTB machine), type:
+
+`scp Charix@10.10.10.84:~/secret.zip ~/`
+
+This zip is password protected, but can be unzipped with the same password used to log into the server.
+
+Now that we have user privileges, let's escalate to root. Going back to the initial nmap scan, we notice that vns is running on a couple of ports. We can forward the remote vnc port to our local machine using SSH tunnelling:
+
+`ssh -L 6999:localhost:5902 charix@10.10.10.84`
+
+We can now connect to the desktop using vncviewer. There isn't a password to type here, but we use the secret file that we extracted and unzipped earlier as a means of authentication:
+
+`vncviewer 127.0.0.1:6999 -passwd ~/secret`
+
+This should open a vnc session with a terminal visible. We can use this terminal to grab the flag from the root.txt file.
