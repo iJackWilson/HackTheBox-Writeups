@@ -1,4 +1,4 @@
-#Enumeration
+# Enumeration
 
 Running an nmap scan shows ports 22 and 80 open.
 
