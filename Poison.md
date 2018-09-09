@@ -2,7 +2,7 @@
 
 The first step is to run an nmap scan to get an idea of what services are running on the machine.
 
-*nmap -sV -sC -Pn -oA Poison 10.10.10.84*
+`nmap -sV -sC -Pn -oA Poison 10.10.10.84`
 
 ```
 nmap -sV -sC -Pn -oA Poison 10.10.10.84
@@ -42,7 +42,7 @@ One way to do it would be to use the following bash command, perhaps even puttin
 
 We know from viewing the */etc/passwd* file that there is a user called *Charix* and that SSH is running on port 22, so let's try to connect with the password we just decoded:
 
-*ssh Charix@10.10.10.84*
+`ssh Charix@10.10.10.84`
 
 In my experience, there is some latency with this machine, so you may have to wait 10-15 seconds for the password prompt to appear. Once it does, you have user access on the machine and the ability to grab the user.txt flag.
 
