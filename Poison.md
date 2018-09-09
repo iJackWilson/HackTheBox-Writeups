@@ -2,8 +2,6 @@
 
 The first step is to run an nmap scan to get an idea of what services are running on the machine.
 
-`nmap -sV -sC -Pn -oA Poison 10.10.10.84`
-
 ```
 nmap -sV -sC -Pn -oA Poison 10.10.10.84
 Starting Nmap 7.70 ( https://nmap.org )
