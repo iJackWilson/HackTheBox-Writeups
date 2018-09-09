@@ -38,6 +38,8 @@ One way to do it would be to use the following bash command, perhaps even puttin
 
 *echo [base64 encoded value | base64 --decode > pass.txt*
 
+#Connecting to the server
+
 We know from viewing the */etc/passwd* file that there is a user called *Charix* and that SSH is running on port 22, so let's try to connect with the password we just decoded:
 
 *ssh Charix@10.10.10.84*
@@ -45,6 +47,8 @@ We know from viewing the */etc/passwd* file that there is a user called *Charix*
 In my experience, there is some latency with this machine, so you may have to wait 10-15 seconds for the password prompt to appear. Once it does, you have user access on the machine and the ability to grab the user.txt flag.
 
 ![Homepage](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Images/Poison/UserShell.png?raw=true)
+
+#Privesc
 
 There's also a file called secret.zip sitting in the home directory. We'll need this later so let's copy it using secure copy (SCP). On the host machine (not the HTB machine), type:
 
