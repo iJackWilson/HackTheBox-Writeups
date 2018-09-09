@@ -1,14 +1,30 @@
 # Enumeration
 
-Running an nmap scan shows ports 22 and 80 open.
+The first step is to run an nmap scan to get an idea of what services are running on the machine.
 
 *nmap -sV -sC -Pn -oA Poison 10.10.10.84*
 
-Browsing to the web interface shows an input box used to view files. This is unrestricted so the /etc/passwd file can be viewed to enumerate users
+```
+Falcon:~ jack$ nmap -sV -sC -Pn -oA Poison 10.10.10.84
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-09-09 20:20 BST
+Nmap scan report for 10.10.10.84
+Host is up (0.035s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.2 (FreeBSD 20161230; protocol 2.0)
+80/tcp   open  http    Apache httpd 2.4.29 ((FreeBSD) PHP/5.6.32)
+5802/tcp open  http    Bacula http config
+5902/tcp open  vnc     VNC (protocol 3.8)
+5903/tcp open  vnc     VNC (protocol 3.8)
+6002/tcp open  X11     (access denied)
+6003/tcp open  X11     (access denied)
+Service Info: OS: FreeBSD; CPE: cpe:/o:freebsd:freebsd
+```
+There's a good amount of services, but let's start by visiting the web interface which shows an input box used to view files. This is unrestricted so entering `/etc/passwd` will allow us to view this file and enumerate users.
 
 ![Homepage](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Images/Poison/Homepage.png?raw=true)
 
-We also notice that a file called *listfiles.php* is referenced. Navigating to this page mentions a file called *pwdbackup.txt*
+We also notice that a file called `listfiles.php` is referenced. Navigating to this page mentions a file called `pwdbackup.txt`
 
 ![Homepage](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Images/Poison/ListFiles.png?raw=true)
 
