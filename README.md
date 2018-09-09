@@ -4,9 +4,9 @@ This repositry contains writeups for retired HackTheBox machines. I'll add them 
 
 Need to contact me about the writeups?
 
-[Twitter](https://twitter.com/iJackWilson)
+[@iJackWilson on Twitter](https://twitter.com/iJackWilson)
 
-[HackTheBox](https://www.hackthebox.eu/home/users/profile/13424)
+[HackTheBox Profile](https://www.hackthebox.eu/home/users/profile/13424)
 
 ## Rooted Machines
 
