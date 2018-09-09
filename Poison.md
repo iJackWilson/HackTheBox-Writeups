@@ -6,5 +6,4 @@ Running an nmap scan shows ports 22 and 80 open.
 
 Browsing to the web interface shows an input box used to view files. This is unrestricted so the /etc/passwd file can be viewed to enumerate users
 
-![Homepage](https://github.com/iJackWilson/HackTheBox-Writeups/Images/Homepage.png?raw=true)
-
+![Homepage](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Images/Homepage.png?raw=true)
