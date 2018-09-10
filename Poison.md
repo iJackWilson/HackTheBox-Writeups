@@ -54,7 +54,7 @@ There's also a file called secret.zip sitting in the home directory. We'll need 
 
 This zip is password protected, but can be unzipped with the same password used to log into the server.
 
-Now that we have user privileges, let's escalate to root. Going back to the initial nmap scan, we notice that vns is running on a couple of ports. We can forward the remote vnc port to our local machine using SSH tunnelling:
+Now that we have user privileges, let's escalate to root. Going back to the initial nmap scan, we notice that vnc is running on a couple of ports. We can forward the remote vnc port to our local machine using SSH tunnelling:
 
 `ssh -L 6999:localhost:5902 charix@10.10.10.84`
 
