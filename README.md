@@ -1,6 +1,6 @@
 # HackTheBox Writeups
 
-This repositry contains writeups for various HackTheBox machines. I'll add them as a complete them and find the time to write them up.
+This repository contains writeups for various HackTheBox machines. I'll add them as a complete them and find the time to write them up.
 
 For the sake of fairness the writeups will only be for retired machines.
 
