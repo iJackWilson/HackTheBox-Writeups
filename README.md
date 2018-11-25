@@ -14,3 +14,6 @@ Need to contact me about the writeups?
 
 * [Poison](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Poison.md)
 
+* [Jerry](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Jerry.md)
+
+* [Valentine](https://github.com/iJackWilson/HackTheBox-Writeups/blob/master/Valentine.md)
