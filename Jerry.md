@@ -1,4 +1,4 @@
-#Enumeration
+# Enumeration
 
 The first step is to run an nmap scan to gewt an idea of what services are running on the machine.
 
