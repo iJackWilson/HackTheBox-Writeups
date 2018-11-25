@@ -21,6 +21,8 @@ PORT     STATE SERVICE REASON  VERSION
 
 There is only one port open in the top 100, port 8080. The nmap script results (from the -sC flag) reveal that this is running Apache Tomcat 7.0.88.
 
+# Exploitation
+
 A bit of internet research will reveal there is a web interface under /manager/html. Further internet research will uncover the default credentials for Apache Tomcat.
 
 We now have access to the web interface. This administative interface has file upload functionality which we can abuse to gain a shell. Under the deploy section, we have the ability to upload a .war file. A suitable payload can be generated using msfvenom:
